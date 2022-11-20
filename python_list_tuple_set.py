@@ -65,3 +65,15 @@ print(cs_courses.intersection(art_courses))
 print(cs_courses.difference(art_courses))
 print(cs_courses.union(art_courses))
 
+#empty lists
+empty_list = []
+empty_list = list()
+
+#empty tuples
+empty_tuple = {}
+empty_tuple = tuple()
+
+#empty set
+empty_set = {} # this is not a set, it's empty dictionary
+empty_set = set()
+

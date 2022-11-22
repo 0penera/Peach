@@ -12,7 +12,7 @@ for item in courses:
 for index, item in enumerate(courses, start=1):
     print(index, item)
     
-#list to sting and string to list
+#list to string and string to list
 course_str = ', '.join(courses)
 new_list = course_str.split(', ')
 print(course_str)

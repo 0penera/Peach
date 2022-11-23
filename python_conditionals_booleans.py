@@ -28,7 +28,7 @@ else:
 a = [1, 2, 3]
 b = [1, 2, 3]
 print(a == b)
-print(a is b)
+print(a is b)   #comparing memory address
 print(f'id of a: {id(a)}, id of b: {id(b)}')
 
 # false values: 

@@ -27,7 +27,7 @@ student_info(*courses, **info)
 #------------------------------------------------------
 #number of days per month, first value placeholder for indexing purposes.
 month_days = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-print(len(month_days))
+
 def is_leap(year):
     """return true for leap years, false for non leap years"""
     

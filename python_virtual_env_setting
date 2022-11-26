@@ -1,0 +1,24 @@
+this script for windows cmd setting
+
+1. see global libraries
+    pip list 
+    #see local libraries
+        pip list --local
+2. create virtual environment 
+    python -m venv NameOfProject
+    #create fold
+        move to dir
+        mkdir NameOfFolder
+    #create virtual environment using global libraries
+        python -m venv NameOfProject --system-site-packages
+3. activate virtual environment
+    NameOfProject\Scripts\activate.bat
+4. shut down virtual environment
+    rmdir NameOfProject /s
+5. find develop environment
+    where python
+6. making virtual environment libraries text file
+    pip freeze
+    #and save libraries in menopad
+7. install libraries in text file
+    pip install -r TextFileName

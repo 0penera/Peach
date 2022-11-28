@@ -87,9 +87,10 @@ import pytz
 dt_mtn = datetime.datetime.now(tz=pytz.timezone('Asia/Seoul'))
 
 print(dt_mtn.isoformat())
+# strftime = datetime to string
 print(dt_mtn.strftime('%B %d, %Y'))
 
+# strptime = string to datetime
 dt_str = 'July 26, 2016'
-
 dt = datetime.datetime.strptime(dt_str, '%B %d, %Y')
 print(dt)

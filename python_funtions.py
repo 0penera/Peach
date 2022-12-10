@@ -21,8 +21,8 @@ student_info('math', 'art', name='john', age=22)
 
 courses =['math', 'art', 'comp_sci']
 info = {'name': 'corey', 'age':30}
-student_info(courses, info)
-student_info(*courses, **info)
+# student_info(courses, info)
+# student_info(*courses, **info)
 
 #------------------------------------------------------
 #number of days per month, first value placeholder for indexing purposes.

@@ -65,63 +65,82 @@
 # practical example of decorator
 '''more common use case of decorator'''
 
-from functools import wraps
+# from functools import wraps
 
-def my_logger(orig_func):
-    # decorator save loginfo
-    import logging
-    logging.basicConfig(filename='{}.log'.format(orig_func.__name__), level=logging.INFO)
+# def my_logger(orig_func):
+#     # decorator save loginfo
+#     import logging
+#     logging.basicConfig(filename='{}.log'.format(orig_func.__name__), level=logging.INFO)
     
-    @wraps(orig_func)
-    def wrapper(*args, **kwargs):
-        logging.info(
-            'Ran with args: {}, and kwargs: {}'.format(args, kwargs))
-        return orig_func(*args, **kwargs)
+#     @wraps(orig_func)
+#     def wrapper(*args, **kwargs):
+#         logging.info(
+#             'Ran with args: {}, and kwargs: {}'.format(args, kwargs))
+#         return orig_func(*args, **kwargs)
     
-    return wrapper
+#     return wrapper
 
-@my_logger
-def display_info(name, age):
-    print('display_info ran with argumenets({}, {})'.format(name, age))
+# @my_logger
+# def display_info(name, age):
+#     print('display_info ran with argumenets({}, {})'.format(name, age))
         
-display_info('John', 23)
+# display_info('John', 23)
 
 
-def my_timer(orig_func):
-    # show function running time
+# def my_timer(orig_func):
+#     # show function running time
 
-    import time
+#     import time
     
-    @wraps(orig_func)
-    def wrapper(*args, **kwargs):
-        t1 = time.time()
-        result = orig_func(*args, **kwargs)
-        t2 = time.time() - t1
-        print('{} ran in: {} sec'.format(orig_func.__name__, t2))
-        return result
+#     @wraps(orig_func)
+#     def wrapper(*args, **kwargs):
+#         t1 = time.time()
+#         result = orig_func(*args, **kwargs)
+#         t2 = time.time() - t1
+#         print('{} ran in: {} sec'.format(orig_func.__name__, t2))
+#         return result
     
-    return wrapper
+#     return wrapper
 
-import time
+# import time
 
-@my_timer
-def display_info(name, age):
-    time.sleep(1)
-    print('display_info ran with argumenets({}, {})'.format(name, age))
+# @my_timer
+# def display_info(name, age):
+#     time.sleep(1)
+#     print('display_info ran with argumenets({}, {})'.format(name, age))
         
-display_info('John', 23)
+# display_info('John', 23)
 
 
-@my_logger
-@my_timer
-def display_info(name, age):
-    time.sleep(1)
-    print('display_info ran with argumenets({}, {})'.format(name, age))
+# @my_logger
+# @my_timer
+# def display_info(name, age):
+#     time.sleep(1)
+#     print('display_info ran with argumenets({}, {})'.format(name, age))
         
-display_info('John', 23)
+# display_info('John', 23)
 
 
-display_info = my_timer(display_info)
-print(display_info.__name__)
+# display_info = my_timer(display_info)
+# print(display_info.__name__)
+
+# -------------------------------------------------------
+'''decorator arguments'''
 
 
+def  prefix_decorator(prefix):
+    def decorator_function(original_function):
+        def wrapper_function(*args, **kwargs):
+            print(prefix, 'Executed Before', original_function.__name__)
+            result = original_function(*args, **kwargs)
+            print(prefix, 'Executed After', original_function.__name__)
+            return result
+        return wrapper_function
+    return decorator_function
+
+@prefix_decorator('TESTING:')
+def display_info(name, age):
+    print('display_info ran with arguments ({}, {})'.format(name, age))
+    
+
+display_info('john', 25)
